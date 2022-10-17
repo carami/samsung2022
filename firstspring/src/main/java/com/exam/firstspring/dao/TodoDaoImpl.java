@@ -1,7 +1,10 @@
 package com.exam.firstspring.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.exam.firstspring.domain.Todo;
 
+@Repository
 public class TodoDaoImpl implements TodoDao {
 
 	@Override

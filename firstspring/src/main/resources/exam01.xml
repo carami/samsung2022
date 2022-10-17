@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 
 	<bean id="userBean" class="com.exam.firstspring.ioc.UserBean"></bean>
 	<bean id="todo" class="com.exam.firstspring.domain.Todo"></bean>
 	
 	<bean id="todoDao" class="com.exam.firstspring.dao.TodoDaoImpl"/>
 	<bean id="todoService" class="com.exam.firstspring.service.TodoService">
-		<!-- <property name="todoDao" ref="todoDao"></property> -->
+		<property name="todoDao" ref="todoDao"></property>
 		<constructor-arg ref="todoDao"></constructor-arg>
-	</bean>
+	</bean> -->
 	
-</beans>
+	<context:component-scan base-package="com.exam.firstspring"></context:component-scan>
+</beans:beans>

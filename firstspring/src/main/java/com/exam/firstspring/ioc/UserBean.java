@@ -1,5 +1,8 @@
 package com.exam.firstspring.ioc;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserBean {
 	private String name;
 	private int age;

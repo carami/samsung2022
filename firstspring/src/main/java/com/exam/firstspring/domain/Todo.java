@@ -1,5 +1,8 @@
 package com.exam.firstspring.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Todo {
 	private Long id;
 	private String todo;
