@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="userBean" class="com.exam.firstspring.ioc.UserBean"></bean>
+	<bean id="todo" class="com.exam.firstspring.domain.Todo"></bean>
+	
+</beans>
