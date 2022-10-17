@@ -18,6 +18,8 @@ public class UserBeanTest {
 		
 		UserBean userBean2 = ac.getBean("userBean",UserBean.class);
 		
+		System.out.println(userBean == userBean2);
+		
 		Todo todo = ac.getBean("todo",Todo.class);
 		todo.setTodo("ioc 이해하기!!! ");
 		

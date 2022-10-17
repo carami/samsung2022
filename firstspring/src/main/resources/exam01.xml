@@ -8,7 +8,8 @@
 	
 	<bean id="todoDao" class="com.exam.firstspring.dao.TodoDaoImpl"/>
 	<bean id="todoService" class="com.exam.firstspring.service.TodoService">
-		<property name="todoDao" ref="todoDao"></property>
+		<!-- <property name="todoDao" ref="todoDao"></property> -->
+		<constructor-arg ref="todoDao"></constructor-arg>
 	</bean>
 	
 </beans>
