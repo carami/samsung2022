@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.exam.firstspring.domain.Todo;
+import com.exam.firstspring.service.TodoService;
 
 public class UserBeanTest {
 
@@ -21,6 +22,9 @@ public class UserBeanTest {
 		todo.setTodo("ioc 이해하기!!! ");
 		
 		System.out.println(todo.getTodo());
+		
+		TodoService service = ac.getBean("todoService",TodoService.class);
+		service.addTodo();
 	}
 
 }

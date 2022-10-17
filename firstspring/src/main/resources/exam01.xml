@@ -6,4 +6,9 @@
 	<bean id="userBean" class="com.exam.firstspring.ioc.UserBean"></bean>
 	<bean id="todo" class="com.exam.firstspring.domain.Todo"></bean>
 	
+	<bean id="todoDao" class="com.exam.firstspring.dao.TodoDaoImpl"/>
+	<bean id="todoService" class="com.exam.firstspring.service.TodoService">
+		<property name="todoDao" ref="todoDao"></property>
+	</bean>
+	
 </beans>
