@@ -9,10 +9,12 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
 
 import sample.domain.Product;
 
 @Aspect
+@Component
 public class MyFirstAspect {
 	public MyFirstAspect() {
 		System.out.println("myFirst aspect!!");
