@@ -16,8 +16,17 @@
 </form>
 
 <c:forEach var="todo" items="${todos }" varStatus="status">
-${todo.todo } <br>
 
+    <p>    
+    <c:if test="${todo.done }">
+	완료^^
+	</c:if>
+	<c:if test="${!todo.done }">
+	진행중
+	</c:if>
+	
+    <a href="updateDone?id=${todo.id}">${todo.todo} </a>
+    <a href="deleteTodo?id=${todo.id}">삭제</a></p>
 </c:forEach>
 
 </body>
