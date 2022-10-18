@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToDo List</title>
 </head>
 <body>
-hello~~~!!  ${greeting }  
+<h1>ToDo List</h1>
+
+<form method="post" action="addToDo">
+	할일 : <input type="text" name="todo">
+	<input type="submit" value="추가">
+</form>
 </body>
 </html>
