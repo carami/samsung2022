@@ -6,12 +6,13 @@ import org.springframework.stereotype.Component;
 import sample.dao.ProductDao;
 import sample.domain.Product;
 
-@Component
+
 public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
 
 	public void addProduct(Product product) {
+		System.out.println("addProduct 실행");
 		productDao.addProduct(product);
 	}
 
