@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,6 +17,7 @@ import com.exam.todomvc.service.TodoService;
 public class TodoController {
 	@Autowired
 	private TodoService todoService;
+	
 	@PostMapping("/addToDo")
 	public String addTodo(@RequestParam("todo")String todo) {
 		todoService.addTodo(todo);
@@ -30,6 +32,19 @@ public class TodoController {
 		model.addAttribute("todos", todos);
 		return "list";	
 		
+	}
+	
+	@GetMapping("/updateTodo")
+	public String updateForm(@RequestParam("id") Long id,Model model) {
+		Todo todo = todoService.getToto(id);
+		model.addAttribute("todo",todo);
+		return "updateTodo";
+	}
+	@PostMapping("/updateTodo")
+	public String updateTodo(@ModelAttribute Todo todo) {
+		System.out.println(todo.getTodo());
+		
+		return "redirect:./list";
 	}
 	
 	 @GetMapping("/updateDone")
