@@ -1,5 +1,6 @@
 package com.exam.todojpa.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,17 @@ public class TodoService {
 	
 	
 	
-//	@Transactional(readOnly = true)
-//	public List<Todo> getTodos(){
-//		return todoDao.getTodos();
-//	}
-//	@Transactional
-//	public Todo addTodo(String todo) {
-//		return todoDao.addTodo(todo);
-//	}
-//	
+	@Transactional(readOnly = true)
+	public List<Todo> getTodos(){
+		return todoRepository.findAll();
+	}
+	@Transactional
+	public Todo addTodo(String todo) {
+		Todo insertTodo = new Todo();
+		insertTodo.setTodo(todo);
+		return todoRepository.save(insertTodo);
+	}
+	
 	@Transactional
     public Todo updateTodo(Long id){
 		System.out.println("update 시작!!!");
@@ -47,9 +50,9 @@ public class TodoService {
         todoRepository.delete(result.get());
         	
     }
-//    
-//    @Transactional(readOnly = true)
-//    public Todo getToto(Long id) {
-//        return todoDao.getTodo(id);
-//    }
+    
+    @Transactional(readOnly = true)
+    public Todo getToto(Long id) {
+        return todoRepository.findById(id).get();
+    }
 }
