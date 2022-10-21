@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import com.exam.todojpa.config.ApplicationConfig;
 import com.exam.todojpa.domain.Todo;
@@ -70,10 +68,18 @@ public class JpaMain {
 //		
 //		
 //		
-		//7. jpql 을 이용해서~~ 
-		List<Todo> result3 = todoRepo.findTodos("물");
-		System.out.println(result3.size());
+//		//7. jpql 을 이용해서~~ 
+//		List<Todo> result3 = todoRepo.findTodos("물");
+//		System.out.println(result3.size());
+//		
+		//8. native query 
 		
+		Pageable pageable = PageRequest.of(0, 5);
+		List<Todo> result4 = todoRepo.findTodos2("he", pageable);
+		for (Todo todo : result4) {
+			System.out.println(todo);
+		}
+		 
 	}
 
 }
