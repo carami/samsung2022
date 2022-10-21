@@ -14,11 +14,14 @@ function getTodos(){
                for(let i = 0; i < todos.length; i++){
                    todoItemAdd(todos[i]);
                }
-            }
+            }else{
+				window.location.href = '/todojpa/';
+			}
         }
    }
    xhr.send();          
 }
+
 
 function updateTodo(id){
     let updateTodo = {"id":id};
