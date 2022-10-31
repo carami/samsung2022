@@ -4,7 +4,7 @@ public class MyBean {
 	private String name;
 	private int count;
 	
-	MyBean(){
+	public MyBean(){
 		
 	}
 	MyBean(String name){
