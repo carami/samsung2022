@@ -4,6 +4,12 @@ public class MyBean {
 	private String name;
 	private int count;
 	
+	MyBean(){
+		
+	}
+	MyBean(String name){
+		this.name = name;
+	}
 	public String getName() {
 		return name;
 	}

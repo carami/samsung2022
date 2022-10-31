@@ -9,7 +9,7 @@ public class Game {
 		System.out.println("game 생성자!!");
 	}
 
-	public void setList(List<Player> list) {
+	public void setPlayerList(List<Player> list) {
 		System.out.println("Game setList()");
 		this.list = list;
 	}
