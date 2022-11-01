@@ -14,6 +14,7 @@ public class ProductDaoImpl implements ProductDao {
 	private Map<String, Product> storage = new HashMap<String, Product>();
 
 	public Product findProduct(String name) {
+		System.out.println(" ProductDAO 의 findProduct 실행!!!");
 //		if( 1 == 1 )
 //		throw new RuntimeException("강제로 오류 발생");
 		return storage.get(name);
