@@ -44,14 +44,18 @@ public class MyFirstAspect {
 	
 	}
 	
-	public Object around(ProceedingJoinPoint pjp) throws Throwable{
+	public Product around(ProceedingJoinPoint pjp) throws Throwable{
 		//메서도 호출 전 후에 동작하는 어드바이스 
 		System.out.println("Hello Around!!!   before   ****  메서드 호출되기 전에 나옵니다!!");
 		Signature sig = pjp.getSignature();
 		System.out.println("----->aop:arount   메소드명!!! "+sig.getName());
 		Product p =(Product)pjp.proceed();
 		System.out.println("Hello Around!!!  after **** 메소드가 호출 된 후에 나옵니다!!  ");
-		p.setName("aaaa");
+		
+		if(p.getName().equals("pen"))
+			p.setName("aaaapen");
+		
+		
 		return p;
 	}
 	
