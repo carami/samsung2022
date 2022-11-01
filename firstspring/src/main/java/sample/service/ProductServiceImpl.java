@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import sample.dao.ProductDao;
 import sample.domain.Product;
 
-//@Component
+@Component
 public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
