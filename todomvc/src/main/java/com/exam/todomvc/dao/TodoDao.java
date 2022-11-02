@@ -1,4 +1,4 @@
-package sample.dao;
+package com.exam.todomvc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import sample.domain.Todo;
+import com.exam.todomvc.domain.Todo;
 
 @Repository
 public class TodoDao {
@@ -34,7 +34,6 @@ public class TodoDao {
 	@PostConstruct
 	public void init() {
 		simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName("todos").usingGeneratedKeyColumns("id");
-		
 	}
 	
 	@Transactional
