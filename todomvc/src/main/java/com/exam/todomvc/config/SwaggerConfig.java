@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
+import io.swagger.models.Contact;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -23,7 +24,11 @@ public class SwaggerConfig {
 	private static final String API_DESCRIPTION = "ToDo API 명세서";
 
 	public ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title(API_NAME).version(API_VERSION).description(API_DESCRIPTION).build();
+		return new ApiInfoBuilder().
+				title(API_NAME).
+				version(API_VERSION).
+				description(API_DESCRIPTION).
+				build();
 	}
 
 	@Bean
@@ -39,6 +44,7 @@ public class SwaggerConfig {
 	// swagger 설정.
 	public Docket getDocket(String groupName, Predicate<String> predicate) {
 		return new Docket(DocumentationType.SWAGGER_2)
+				.apiInfo(apiInfo())
 				.groupName(groupName)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.exam.todomvc"))
@@ -46,5 +52,7 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.any())
 				.build();
 	}
+	
+	
 
 }
