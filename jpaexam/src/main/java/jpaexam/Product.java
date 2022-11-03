@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 	@Id  //반드시 필요!!
-	@GeneratedValue
+//	@GeneratedValue
 	private Long id;
 	
 	private String name;

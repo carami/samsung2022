@@ -25,26 +25,29 @@ public class JpaRun {
 //			
 //			
 //			
-//			Product product2 = new Product();
-////			product2.setId(4L);
-//			product2.setName("cup");
-//			product2.setPrice(2000); // 비영속상태
-//			
-//			em.persist(product2);
-//			System.out.println("---------------------");
+			Product product2 = new Product();
+			product2.setId(5L);
+			product2.setName("cup");
+			product2.setPrice(2000); // 비영속상태
+			
+			em.persist(product2);
+			System.out.println("---------------------");
 
 			//수정~~     
-//			Product findProduct =	em.find(Product.class, 1L);  //스냅샷 
-//			findProduct.setName("test");
-//			findProduct.setPrice(5000);
+			Product findProduct =	em.find(Product.class, 5L);  //스냅샷 
+			findProduct.setName("test");
+			findProduct.setPrice(5000);
+			
+			if( product2 == findProduct)
+				System.out.println("같은 객체!!");
 //			
 //						
 //			findProduct.setName("pen1111");
 //			findProduct.setPrice(3000);   // 마지막 커맷될때 스냅샷과 비교해서 달라진 값이 있을때 update 한다. 
 		//삭제 
 			
-			Product findProduct =	em.find(Product.class, 1L);
-			em.remove(findProduct);
+//			Product findProduct =	em.find(Product.class, 1L);
+//			em.remove(findProduct);
 			
 			
 			
