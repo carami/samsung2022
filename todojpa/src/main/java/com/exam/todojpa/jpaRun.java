@@ -58,21 +58,39 @@ public class jpaRun {
 		
 		
 	//5. 인터페이스에 추가한 메소드를 실행..  todo를 이용해서 검색한다. 
-		Todo result3 = todorepo.findTodoByTodo("test").get();
-		System.out.println(result3);
-		
-		//6.전체검색 
-		List<Todo> todos = todorepo.findAll();
-		
-		System.out.println(todos.size());
+//		Todo result3 = todorepo.findTodoByTodo("test").get();
+//		System.out.println(result3);
+//		
+//		//6.전체검색 
+//		List<Todo> todos = todorepo.findAll();
+//		
+//		System.out.println(todos.size());
 		
 	//6. Pageable 객체를 이용해서 가져오기. 
-		Pageable pageable = PageRequest.of(3, 5, Sort.by("id").descending());
+//		Pageable pageable = PageRequest.of(3, 5, Sort.by("id").descending());
+//		
+//		Page<Todo> page = todorepo.findAll(pageable);
+//		List<Todo> result5 = page.getContent();
+//		System.out.println(result5.size());
+//		for (Todo todo : result5) {
+//			System.out.println(todo);
+//		}
 		
-		Page<Todo> page = todorepo.findAll(pageable);
-		List<Todo> result5 = page.getContent();
-		System.out.println(result5.size());
-		for (Todo todo : result5) {
+		//7. todoStart
+//		List<Todo> list1 = todorepo.findTodoByTodoStartingWith("t");
+//		List<Todo> list1 = todorepo.findTodoByIdGreaterThan(200L);
+		
+		Pageable pageable = PageRequest.of(0, 5, Sort.by("id").descending());
+//		List<Todo> list1 = todorepo.findTodoByIdGreaterThan(200L, pageable);
+		
+		
+		//jpql 사용!!!
+//		List<Todo> list1 = todorepo.findTodos("he", pageable);
+		
+		//9. native query 사용
+		List<Todo> list1 = todorepo.findTodos2("he", pageable);
+		
+		for (Todo todo : list1) {
 			System.out.println(todo);
 		}
 		
