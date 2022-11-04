@@ -27,67 +27,67 @@ import com.exam.todojpa.config.SimpleTestConfig;
 import com.exam.todojpa.domain.Todo;
 
 @ExtendWith(SpringExtension.class)
-@SpringJUnitConfig(classes = {SimpleTestConfig.class, ApplicationConfig.class})
+@SpringJUnitConfig(classes = { SimpleTestConfig.class, ApplicationConfig.class })
 @DisplayName("TodoRepository test")
 @Transactional
 public class TodoRepositoryTest {
 	private static Logger logger = LoggerFactory.getLogger(TodoRepository.class);
 	@Autowired
 	private TodoRepository todoRepository;
-	
+
 	@BeforeAll
 	static void setup() {
-		logger.info("----> @BeforeAll ---     이 클래스의 테스트 메서드가 실행되기 전에 한 번 실행됩니다.");		
+		logger.info("----> @BeforeAll ---     이 클래스의 테스트 메서드가 실행되기 전에 한 번 실행됩니다.");
 	}
-	
+
 	@AfterAll
 	static void tearDown() {
-		logger.info("----> @AfterAll ---     이 클래스의 테스트 끝나기 전에 한 번 실행됩니다.");	
+		logger.info("----> @AfterAll ---     이 클래스의 테스트 끝나기 전에 한 번 실행됩니다.");
 	}
-	
+
 	@BeforeEach
 	void init() {
-		logger.info("----> @BeforeEach ---     이 클래스의 테스트 각 메서드가 실행되기 전에 매번 실행됩니다.");	
+		logger.info("----> @BeforeEach ---     이 클래스의 테스트 각 메서드가 실행되기 전에 매번 실행됩니다.");
 	}
+
 	@AfterEach
 	void dispose() {
-		logger.info("----> @AfterEach ---     이 클래스의 테스트 각 메서드가 끝날때 매번 실행됩니다.");	
+		logger.info("----> @AfterEach ---     이 클래스의 테스트 각 메서드가 끝날때 매번 실행됩니다.");
 	}
-	
+
 	@Test
 	void test1() {
 		logger.info("test1 =======================================");
 	}
-	
+
 	@Test
 	void test2() {
 		logger.info("test2 ========================================");
 	}
-	
+
 	@Test
 	@SqlGroup({
-		@Sql(value = "classpath:db/test-data.sql",
-				config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"),
-				executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
-		@Sql(value = "classpath:db/clean-up.sql",
-				config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"),
-				executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD),
-})
-	void findAll(){
+			@Sql(value = "classpath:db/test-data.sql", config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"), executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
+			@Sql(value = "classpath:db/clean-up.sql", config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"), executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD), })
+	void findAll() throws Exception{
 		logger.info("find All~~~");
 		List<Todo> todos = todoRepository.findAll();
 		assertNotNull(todos);
-		assertEquals(6, todos.size());		
+		assertEquals(3, todos.size());
 	}
-	
+
 	@Test
+	@SqlGroup({
+			@Sql(value = "classpath:db/test-data.sql", config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"), executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
+			@Sql(value = "classpath:db/clean-up.sql", config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"), executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD), })
 	@DisplayName("Todo hello 저장 테스트")
-	void save() {
+	void save() throws Exception{
 		logger.info("save test~~ ");
 		Todo todo = new Todo();
 		todo.setTodo("hello");
-		
-		todo =	todoRepository.save(todo);
+
+		todo = todoRepository.save(todo);
 		assertNotNull(todo.getId());
+		assertEquals(4, todoRepository.findAll().size());
 	}
 }
