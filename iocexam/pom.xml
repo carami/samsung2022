@@ -5,13 +5,16 @@
 	<groupId>com.exam</groupId>
 	<artifactId>iocexam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<spring-version>5.3.23</spring-version>
+	</properties>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.23</version>
+			<version>${spring-version}</version>
 		</dependency>
 
 	</dependencies>
