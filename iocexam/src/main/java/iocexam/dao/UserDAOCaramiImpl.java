@@ -2,8 +2,10 @@ package iocexam.dao;
 
 import java.util.List;
 
-import iocexam.domain.User;
+import org.springframework.stereotype.Repository;
 
+import iocexam.domain.User;
+@Repository("userDAOCarami")
 public class UserDAOCaramiImpl implements UserDAO {
 
 	@Override

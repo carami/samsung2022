@@ -1,4 +1,4 @@
-package iocexam.config;
+package sample.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

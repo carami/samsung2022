@@ -1,4 +1,4 @@
-package iocexam.config;
+package sample.config;
 
 import java.util.List;
 

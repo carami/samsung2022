@@ -1,5 +1,8 @@
 package sample;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MyBean {
 	private String name;
 	private int count;

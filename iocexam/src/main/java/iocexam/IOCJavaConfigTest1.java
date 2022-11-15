@@ -3,8 +3,8 @@ package iocexam;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import iocexam.config.MyBeanConfig;
 import sample.MyBean;
+import sample.config.MyBeanConfig;
 
 public class IOCJavaConfigTest1 {
 	public static void main(String[] args) {
