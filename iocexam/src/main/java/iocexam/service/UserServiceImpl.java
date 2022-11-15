@@ -1,10 +1,13 @@
 package iocexam.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import iocexam.dao.UserDAO;
 import iocexam.domain.User;
 
 public class UserServiceImpl implements UserService {
 	
+//	@Autowired
 	private UserDAO userDAO;
 	
 //	public UserServiceImpl() {}
