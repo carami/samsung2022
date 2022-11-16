@@ -1,9 +1,5 @@
 package com.exam.todomvc;
 
-import java.util.List;
-
-import javax.sql.DataSource;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -18,14 +14,25 @@ public class TodoJDBCRun {
 		
 		TodoDao dao = ctx.getBean(TodoDao.class);
 		
-		List<Todo> todos =	dao.getTodos();
+//		List<Todo> todos =	dao.getTodos();
+//		
+//		for (Todo todo : todos) {
+//			System.out.println(todo);
+//		}
+//		
+//		DataSource ds = ctx.getBean(DataSource.class);
+//		System.out.println(ds);
+//		
+//		System.out.println(dao.getTodo(2l));
+//		Todo todo = new Todo();
+//		todo.setId(2l);
+//		todo.setDone(true);
+//		int count = dao.updateTodo(todo);
+//		System.out.println(count);
+//		System.out.println(dao.getTodo(2L));
 		
-		for (Todo todo : todos) {
-			System.out.println(todo);
-		}
+		System.out.println(dao.deleteTodo(2L));
 		
-		DataSource ds = ctx.getBean(DataSource.class);
-		System.out.println(ds);
 	}
 
 }
