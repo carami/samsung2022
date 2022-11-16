@@ -32,6 +32,7 @@ public class TodoController {
 		todoService.updateTodo(id);
 		return "redirect:./list";
 	}
+	//이것은 ㅇ브라어라얼하는겁니다.  
 	
 	@GetMapping("/delete")
 	public String delete(@RequestParam("id") Long id) {
