@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,4 +37,16 @@ public class HomeController {
 		return "home";
 	}
 	
+	@GetMapping("/hi")
+	public String hi(String name, Model model) {
+		System.out.println(name);
+		model.addAttribute("name",name);
+		return "home";
+	}
+	@GetMapping("/hi22")
+	public String hi22(String name, Model model) {
+		System.out.println(name);
+		model.addAttribute("name",name);
+		return "home";
+	}
 }

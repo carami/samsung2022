@@ -31,7 +31,10 @@ public class TodoJDBCRun {
 //		System.out.println(count);
 //		System.out.println(dao.getTodo(2L));
 		
-		System.out.println(dao.deleteTodo(2L));
+//		System.out.println(dao.deleteTodo(2L));
+		
+		System.out.println(dao.addTodo("simple jdbc insert 이해하기!!!"));
+		
 		
 	}
 

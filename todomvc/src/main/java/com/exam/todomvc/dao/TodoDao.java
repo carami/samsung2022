@@ -2,12 +2,19 @@ package com.exam.todomvc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +25,34 @@ public class TodoDao {
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	@Qualifier("dataSource")
+	DataSource dataSource;
+	
+	private SimpleJdbcInsert simpleJdbcInsert;
+	
+	@PostConstruct
+	public void init() {
+		simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName("todos").usingGeneratedKeyColumns("id");
+	}
+	
+	@Transactional
+	public Todo addTodo(String todo) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("todo", todo);
+		params.put("done", false);
+		
+		Number pk = simpleJdbcInsert.executeAndReturnKey(params);
+		
+		Todo resultTodo = new Todo();
+		resultTodo.setId(pk.longValue());
+		resultTodo.setTodo(todo);
+		resultTodo.setDone(false);
+		
+		return resultTodo;
+		
+	}
 	
 	@Transactional(readOnly = true)
 	public List<Todo> getTodos(){
