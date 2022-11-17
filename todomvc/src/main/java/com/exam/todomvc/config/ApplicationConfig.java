@@ -22,6 +22,7 @@ public class ApplicationConfig {
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+	
 		
 		return dataSource;
 	}
