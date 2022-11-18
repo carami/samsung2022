@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ import com.exam.todomvc.service.TodoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping("/api/todos")
@@ -63,4 +65,8 @@ public class TodoApiController {
 		return todoService.updateTodo(todo.getId());
 	}
 
+	@GetMapping("/bearerTest")
+	public String bearerTest(@ApiIgnore @RequestHeader("Authorization") String authorization) {
+		return authorization;
+	}
 }
