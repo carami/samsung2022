@@ -4,7 +4,8 @@
   xmlns:c="http://www.springframework.org/schema/c"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="bean1" class="sample.MyBean" />
-	<bean id="bean2" class="sample.MyBean" />
+	<bean id="dice" class="sample.Dice">
+		<constructor-arg value="6" />
+	</bean>
 	
 </beans>

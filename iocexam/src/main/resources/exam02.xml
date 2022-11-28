@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="bean1" class="sample.MyBean" >
+		<property name="name" value="kang" />
+		<property name="count" value="100"></property>
+	</bean>
+	
+	<bean id="bean2" class="sample.MyBean">
+		<constructor-arg value="carami"/>
+		<constructor-arg value="200"/>
+	</bean>
+	
+	<bean id="bean3" class="sample.MyBean">
+		<constructor-arg>
+			<map>
+				<entry key="a1" value="kang"/>
+				<entry key="a2" value="kim"/>
+				<entry key="b1" value="hong"/>
+				<entry key="b2" value="choi"/>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>
