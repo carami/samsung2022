@@ -8,4 +8,27 @@
 		<constructor-arg value="6" />
 	</bean>
 	
+	<bean id="kang" class="sample.Player">
+		<property name="name" value="강경미"></property>
+		<property name="dice" ref="dice"></property>
+	</bean> 
+	<bean id="kim" class="sample.Player">
+		<property name="name" value="김길동"></property>
+		<property name="dice" ref="dice"></property>
+	</bean> 
+	<bean id="hong" class="sample.Player">
+		<property name="name" value="홍당무"></property>
+		<property name="dice" ref="dice"></property>
+	</bean> 
+	
+	<bean id="game" class="sample.Game">
+		<property name="playerList">
+			<list>
+				<ref bean="kang"/>
+				<ref bean="kim"/>
+				<ref bean="hong"/>
+			</list>
+		</property>
+	</bean>
+	
 </beans>
