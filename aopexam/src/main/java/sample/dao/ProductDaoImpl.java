@@ -20,6 +20,8 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public Product findProduct(String name) {
 		System.out.println("findProduct 메소드 실행!!");
+		if(1==1)
+			throw new RuntimeException("강제오류발생!!");
 		return storage.get(name);
 	}
 

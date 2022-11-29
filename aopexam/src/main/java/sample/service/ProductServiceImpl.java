@@ -18,6 +18,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product findByProductName(String name) {
+		System.out.println("findByProductName()");
 		return productDao.findProduct(name);
 	}
 

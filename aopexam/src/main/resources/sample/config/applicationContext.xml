@@ -16,8 +16,13 @@
 	
 	<aop:config>
 		<aop:aspect id="myAspect" ref="myFirstAspect">
-			<aop:pointcut expression="execution(* findProduct(String))" id="pc"/>
+			<aop:pointcut expression="execution(* find*(String))" id="pc"/>
+			<aop:pointcut expression="within(sample.*Service)" id="pc2"/>
 			<aop:before method="before" pointcut-ref="pc"/>
+			<aop:after method="after" pointcut-ref="pc"/>
+			<aop:around method="around" pointcut-ref="pc"/>
+			<aop:after-returning method="afterReturning" pointcut-ref="pc" returning="product"/>
+			<aop:after-throwing method="afterThrowing" pointcut-ref="pc" throwing="ex"/>
 		</aop:aspect>
 	</aop:config>
 </beans>
