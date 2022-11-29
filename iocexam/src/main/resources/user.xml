@@ -4,11 +4,11 @@
   xmlns:c="http://www.springframework.org/schema/c"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="userDAOImpl" class="iocexam.dao.UserDAOImpl"></bean>
+	<bean id="userDAO" class="iocexam.dao.UserDAOImpl"></bean>
 	<bean id="userDAOcarami" class="iocexam.dao.UserCaramiDAOImpl"/>
 	
 	<bean id="userService" class="iocexam.service.UserServiceImpl">
-		<property name="userDAO" ref="userDAO"></property>
+		<property name="userDAO" ref="userDAOcarami"></property>
 	</bean>
 	<bean id="userController" class="iocexam.controller.UserController">
 		<constructor-arg ref="userService"></constructor-arg>

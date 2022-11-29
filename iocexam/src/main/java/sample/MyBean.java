@@ -2,6 +2,9 @@ package sample;
 
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component("bean1")
 public class MyBean {
 	private String name;
 	private int count; 

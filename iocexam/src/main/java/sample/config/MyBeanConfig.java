@@ -7,14 +7,14 @@ import sample.MyBean;
 
 @Configuration
 public class MyBeanConfig {
-	@Bean
-	public MyBean bean1() {
-		return new MyBean();
-	}
-	
-	@Bean
-	public MyBean bean2() {
-		return new MyBean();
-	}
+//	@Bean
+//	public MyBean bean1() {
+//		return new MyBean();
+//	}
+//	
+//	@Bean
+//	public MyBean bean2() {
+//		return new MyBean();
+//	}
 
 }

@@ -2,8 +2,10 @@ package iocexam.dao;
 
 import java.util.List;
 
-import iocexam.domain.User;
+import org.springframework.stereotype.Repository;
 
+import iocexam.domain.User;
+@Repository("userCaramiDAO")
 public class UserCaramiDAOImpl implements UserDAO {
 	public UserCaramiDAOImpl() {
 		System.out.println("userDAOcarami ");
