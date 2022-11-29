@@ -1,5 +1,8 @@
 package iocexam.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import iocexam.dao.UserDAO;
 import iocexam.domain.User;
 
@@ -7,6 +10,8 @@ public class UserServiceImpl implements UserService {
 	
 	private UserDAO userDAO;
 	
+	@Autowired
+	@Qualifier("userDAOcarami")
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
