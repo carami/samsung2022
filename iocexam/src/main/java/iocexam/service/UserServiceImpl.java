@@ -10,14 +10,15 @@ import iocexam.domain.User;
 @Service
 public class UserServiceImpl implements UserService {
 	
-	@Autowired
-	@Qualifier("userCaramiDAO")
+//	@Autowired
+//	@Qualifier("userCaramiDAO")
 	private UserDAO userDAO;
 	
-//	@Autowired
-//	public void setUserDAO(UserDAO userDAO) {
-//		this.userDAO = userDAO;
-//	}
+	@Autowired
+	@Qualifier("userCaramiDAO")
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
 	
 
 	@Override

@@ -9,11 +9,13 @@ import iocexam.service.UserService;
 @Controller
 public class UserController {
 	
-	private UserService userService;
 	@Autowired
-	public UserController(UserService userService) {
-		this.userService = userService;
-	}
+	private UserService userService;
+	
+	
+//	public UserController(UserService userService) {
+//		this.userService = userService;
+//	}
 	public void joinUser() {
 		User user = new User();
 		user.setName("kang");
