@@ -16,12 +16,18 @@ public class SpringJDBCRun {
 		
 		TodoDao dao = context.getBean(TodoDao.class);
 		
-		Todo rtodo = new Todo();
-		rtodo.setDone(true);
-		rtodo.setId(1L);
+//		System.out.println(dao.getTodo(1L));
 		
-		dao.updateTodo(rtodo);
+//		Todo rtodo = new Todo();
+//		rtodo.setDone(true);
+//		rtodo.setId(1L);
+//		
+//		dao.updateTodo(rtodo);
 		
+//		dao.deleteTodo(1L);
+		
+		System.out.println(dao.addTodo("spring jdbc 사용하기!!"));
+//		
 		List<Todo> todos =	dao.getTodos();
 		
 		for (Todo todo : todos) {
