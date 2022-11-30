@@ -20,9 +20,26 @@ public class TodoService {
 		return todoDao.getTodos();
 	}
 	
+	@Transactional
 	public Todo addTodo(String todo) {
 		return todoDao.addTodo(todo);
 		
 	}
-
+	
+	@Transactional
+	public Todo updateTodo(Long id) {
+		Todo todo =	todoDao.getTodo(id);
+		todo.setDone(!todo.isDone());
+		todoDao.updateTodo(todo);
+		return todo;
+	}
+	
+	@Transactional
+	public void deleteTodo(Long id) {
+		todoDao.deleteTodo(id);
+	}
+	@Transactional(readOnly = true)
+	public Todo getTodo(Long id) {
+		return todoDao.getTodo(id);
+	}
 }

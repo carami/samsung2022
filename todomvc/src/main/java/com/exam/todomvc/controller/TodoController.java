@@ -30,4 +30,16 @@ public class TodoController {
 		todoService.addTodo(todo);
 		return "redirect:/list";
 	}
+	
+	@GetMapping("/update")
+	public String updateTodo(@RequestParam("id") Long id) {
+		todoService.updateTodo(id);
+		return "redirect:/list";		
+	}
+	
+	@GetMapping("/delete")
+	public String deleteTodo(@RequestParam("id") Long id) {
+		todoService.deleteTodo(id);
+		return "redirect:/list";
+	}
 }
