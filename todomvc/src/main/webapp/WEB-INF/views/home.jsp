@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!  carami!!!!
 </h1>
-
+	<%String name = (String)request.getAttribute("name"); %>
 <P>  The time on the server is ${serverTime}. </P>
+<h1><%=name %></h1>
 </body>
 </html>

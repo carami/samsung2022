@@ -30,6 +30,7 @@ public class TodoDao {
 		simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate).withTableName("todos").usingGeneratedKeyColumns("id");
 	}
 	
+	@Transactional
 	public Todo addTodo(String todo) {
 		Map<String, Object> parms = new HashMap<String, Object>();
 		parms.put("todo", todo);
@@ -79,7 +80,6 @@ public class TodoDao {
 			todo.setTodo(rs.getString("todo"));
 			todo.setDone(rs.getBoolean("done"));
 			return todo;
-		}
-		
+		}		
 	}
 }
