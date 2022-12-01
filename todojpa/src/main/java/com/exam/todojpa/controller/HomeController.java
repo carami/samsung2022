@@ -1,4 +1,4 @@
-package com.exam.todojpa;
+package com.exam.todojpa.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
