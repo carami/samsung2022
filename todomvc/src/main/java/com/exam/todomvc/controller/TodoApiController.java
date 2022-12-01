@@ -15,18 +15,40 @@ import org.springframework.web.bind.annotation.RestController;
 import com.exam.todomvc.domain.Todo;
 import com.exam.todomvc.service.TodoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/api/todos")
+@Api(tags = "todos")
 public class TodoApiController {
 	
 	@Autowired
 	private TodoService todoService;
 	
+	@ApiOperation(value = "Todo 목록을 읽어온다.", notes = "전체 목록을 읽어옵니다. ")
+	@ApiResponses({
+		@ApiResponse(
+			code = 200,
+			message = "성공^^"
+		)
+	})
 	@GetMapping
 	public List<Todo> getTodos(){
 		return todoService.getTodos();
 	}
 	
+	@ApiImplicitParam(
+			name="id", 
+			value = "Todo 아이디", 
+			required = true, 
+			dataType = "String", 
+			paramType = "path", 
+			defaultValue = "3"
+	)
 	@GetMapping("/{id}")
 	public Todo getTodo(@PathVariable("id") Long id) {
 		return todoService.getTodo(id);
