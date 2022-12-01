@@ -1,7 +1,12 @@
 package com.exam.todojpa;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import com.exam.todojpa.config.ApplicationConfig;
 import com.exam.todojpa.domain.Todo;
@@ -22,13 +27,13 @@ public class JpaRun {
 //		todo = todoRepo.save(todo);  
 //		System.out.println(todo);
 		
-		for(int i = 0; i < 50; i++) {
-			Todo todo = new Todo();
-			todo.setTodo("hello "+i);
-			todoRepo.save(todo);
-		}
-		
-		//2. 조회
+//		for(int i = 0; i < 50; i++) {
+//			Todo todo = new Todo();
+//			todo.setTodo("hello "+i);
+//			todoRepo.save(todo);
+//		}
+//		
+		//2.한 건 조회
 //		Todo resultTodo = 	todoRepo.findById(367L).orElseThrow();
 //		System.out.println(resultTodo);
 		
@@ -40,7 +45,37 @@ public class JpaRun {
 //		System.out.println(todoResult2);
 		
 		//4. 삭제
-		todoService.deleteTodo(38L);
+//		todoService.deleteTodo(38L);
+		
+		//5. 여러건 조회
+		List<Todo> todos =	null;
+//		todos = 	todoRepo.findAll();
+		
+		Pageable pageable = PageRequest.of(0, 5, Sort.by("id").descending());
+//		todos =	todoRepo.findAll(pageable).getContent();
+//		
+//		
+		
+		//6. findByTodo 이용한 조회 
+//		Todo result1 = 	todoRepo.findByTodo("hello 10").orElseThrow();
+//		System.out.println(result1);
+//		
+//		todos = todoRepo.findByTodoContaining("1",pageable);
+//		System.out.println(todos.size());
+		
+		
+		//7. jqpl 
+//		todos = todoRepo.findTodos("4", pageable);
+		
+		//8 native query
+		todos = todoRepo.findTodos2("4");
+		
+		
+		
+		
+		for (Todo todo : todos) {
+			System.out.println(todo);
+		}
 		
 	}
 
