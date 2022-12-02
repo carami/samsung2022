@@ -78,9 +78,9 @@ public class TodoRepositoryTest {
 	@DisplayName("전체 데이터를 읽어오는지에 대한 테스트")
 	@Test
 	@SqlGroup({
-		@Sql(value = "classpath:db/test-data.sql",
-				config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"),
-				executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
+//		@Sql(value = "classpath:db/test-data.sql",
+//				config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"),
+//				executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
 		@Sql(value = "classpath:db/clean-up.sql",
 				config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"),
 				executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD),
