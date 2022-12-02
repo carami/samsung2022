@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	                .usernameParameter("email")
 	                .loginProcessingUrl("/login")
 	                .failureUrl("/userregform.html")
-//	                .successHandler(new CustomneAuthenticationSuccessHandlerer())
+//	                .successHandler(new CustomneAuthenticationSuccessHandler())
 	                .permitAll()
 	                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/userregform.html").permitAll()
 //	                .and().exceptionHandling().authenticationEntryPoint(new AlwaysSendUnauthorized401AuthenticationEntryPoint())
