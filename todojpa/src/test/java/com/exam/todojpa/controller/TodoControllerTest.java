@@ -4,9 +4,9 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class TodoControllerTest {
 		
 		this.mockMvc.perform(get("/api/todos"))
 		.andExpect(status().isOk())
-//		.andExpect(content().string(containsString(objectMapper.writeValueAsString(todos))))
+		.andExpect(content().string(containsString(objectMapper.writeValueAsString(todos))))
 		.andDo(print());
 		
 		verify(todoService, times(1)).getTodos();
